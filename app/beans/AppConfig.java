@@ -50,6 +50,11 @@ public class AppConfig {
 	public AccountService accountService(){
 		AccountService accountService = new AccountService();
 		return accountService;
-		
+	}
+	
+	@Bean
+	public PostService postService(){
+		PostService postService = new PostService();
+		return postService;
 	}
 }

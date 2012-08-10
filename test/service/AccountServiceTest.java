@@ -72,11 +72,10 @@ public class AccountServiceTest {
 		assertEquals("test@email.com", paccount.email);
 		Account account2 = new Account("test@email.com", "test");
 		accountService.insertAccount(account2);
-		
 	}
 	
 	@Test
 	public void dropAccountDocument(){
-		accountService.getAccountOps().dropCollection(Account.class);
+	//	accountService.getAccountOps().dropCollection(Account.class);
 	}
 }
