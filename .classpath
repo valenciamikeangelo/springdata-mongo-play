@@ -26,9 +26,9 @@
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.yaml\snakeyaml\1.9\bundles\snakeyaml.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.hibernate\hibernate-validator\4.2.0.Final\jars\hibernate-validator.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\javax.validation\validation-api\1.0.0.GA\jars\validation-api.jar" kind="lib"></classpathentry>
-  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.springframework\spring-context\3.0.7.RELEASE\jars\spring-context.jar" kind="lib"></classpathentry>
-  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.springframework\spring-core\3.0.7.RELEASE\jars\spring-core.jar" kind="lib"></classpathentry>
-  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.springframework\spring-beans\3.0.7.RELEASE\jars\spring-beans.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-context\jars\spring-context-3.1.1.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-core\jars\spring-core-3.1.1.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-beans\jars\spring-beans-3.1.1.RELEASE.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\joda-time\joda-time\2.0\jars\joda-time.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.joda\joda-convert\1.1\jars\joda-convert.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\javassist\javassist\3.12.1.GA\jars\javassist.jar" kind="lib"></classpathentry>
@@ -45,6 +45,18 @@
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\tyrex\tyrex\1.0.1\jars\tyrex.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\jaxen\jaxen\1.1.3\jars\jaxen.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\net.sf.ehcache\ehcache-core\2.5.0\jars\ehcache-core.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\aopalliance\aopalliance\jars\aopalliance-1.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\commons-logging\commons-logging\1.1.1\jars\commons-logging.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-test\jars\spring-test-3.1.1.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework.data\spring-data-mongodb\jars\spring-data-mongodb-1.0.2.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-tx\jars\spring-tx-3.1.2.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-aop\jars\spring-aop-3.1.2.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-asm\jars\spring-asm-3.1.2.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework\spring-expression\jars\spring-expression-3.1.2.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.springframework.data\spring-data-commons-core\jars\spring-data-commons-core-1.2.1.RELEASE.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\org.mongodb\mongo-java-driver\jars\mongo-java-driver-2.8.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\cache\cglib\cglib\jars\cglib-2.2.2.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\asm\asm\3.3.1\jars\asm.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\play\play-test_2.9.1\2.0.2\jars\play-test_2.9.1.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.specs2\specs2_2.9.1\1.9\jars\specs2_2.9.1.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.specs2\specs2-scalaz-core_2.9.1\6.0.1\jars\specs2-scalaz-core_2.9.1.jar" kind="lib"></classpathentry>
@@ -61,7 +73,6 @@
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.seleniumhq.selenium\selenium-api\2.16.1\jars\selenium-api.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.apache.httpcomponents\httpclient\4.1.2\jars\httpclient.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.apache.httpcomponents\httpcore\4.1.3\jars\httpcore.jar" kind="lib"></classpathentry>
-  <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\commons-logging\commons-logging\1.1.1\jars\commons-logging.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\commons-codec\commons-codec\1.4\jars\commons-codec.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\org.apache.commons\commons-exec\1.1\jars\commons-exec.jar" kind="lib"></classpathentry>
   <classpathentry path="C:\devtools\POC\play-2.0.2\framework\..\repository\local\net.java.dev.jna\jna\3.4.0\jars\jna.jar" kind="lib"></classpathentry>
