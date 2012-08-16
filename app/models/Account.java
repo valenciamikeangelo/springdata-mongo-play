@@ -1,16 +1,24 @@
 package models;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Account implements Serializable {
+import org.bson.types.ObjectId;
 
-	public String id;
+
+public class Account {
+
+	public ObjectId id;
 	public String email;
 	public String name;
+	public List<ObjectId> colleaguesIds;
+	public List<ObjectId> participatedPostIds;
+	
+	//non-persisted attributes,data is derived from a builder
 	public List<Post> posts;
-	public List<String> participatedPosts;
+	public List<Account> colleagues;
+	
+		
 	
 	public Account() {
 
@@ -19,9 +27,22 @@ public class Account implements Serializable {
 	public Account(String email, String name) {
 		this.email = email;
 		this.name = name;
-		participatedPosts= new ArrayList<String>();
+		this.colleaguesIds= new ArrayList<ObjectId>();
+		this.colleagues=new ArrayList<Account>();
+		this.participatedPostIds=new ArrayList<ObjectId>();
 	}
 	
+	@Override
+	public boolean equals(Object obj){
+		if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Account guest = (Account) obj;
+        return  this.email.equals(guest.email);
+   }
 	
 	 @Override
 	  public String toString() {

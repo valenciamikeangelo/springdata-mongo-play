@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.data.mongodb.MongoDbFactory;
-import org.springframework.data.mongodb.core.MongoFactoryBean;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.Order;
+
+import builders.AccountBuilder;
+import builders.PostBuilder;
 
 
 
@@ -26,6 +28,7 @@ public class AppConfig {
 	private @Value("${mongodb.dbname}")
 	String dbname;
 
+	/*
 	public @Bean
 	MongoFactoryBean mongo() {
 		MongoFactoryBean mongo = new MongoFactoryBean();
@@ -38,10 +41,12 @@ public class AppConfig {
 	MongoDbFactory mongoDbFactory() throws Exception {
 		return new SimpleMongoDbFactory(mongo().getObject(), dbname);
 	}
-
+	*/
 	public @Bean
 	MongoTemplate mongoTemplate() throws Exception {
-		MongoTemplate template= new MongoTemplate(mongoDbFactory());
+		
+		AbstractApplicationContext ctx= new ClassPathXmlApplicationContext(new String []{"application-context.xml"});
+		MongoTemplate template= (MongoTemplate)ctx.getBean("mongoTemplate");
 		template.indexOps(Account.class).ensureIndex(new Index("email",Order.ASCENDING).unique());
 		return template;
 	}
@@ -57,4 +62,24 @@ public class AppConfig {
 		PostService postService = new PostService();
 		return postService;
 	}
+	
+	@Bean 
+	public AccountBuilder accountBuilder(){
+		AccountBuilder accountBuilder = new AccountBuilder();
+		return accountBuilder;
+	}
+	
+	@Bean 
+	public PostBuilder postBuilder(){
+		PostBuilder postBuilder = new PostBuilder();
+		return postBuilder;
+	}
+	
+	@Bean
+	public EventService eventService(){
+		EventService eventService = new EventService();
+		return eventService;
+	}
+	
+	
 }

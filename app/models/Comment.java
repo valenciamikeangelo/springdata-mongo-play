@@ -2,28 +2,24 @@ package models;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import play.db.ebean.Model;
+import org.bson.types.ObjectId;
 
 
 public class Comment{
 	
-	public String id;
-	public Account commenter;
+	public ObjectId id;
+	public ObjectId commenterId;
     public Date postedAt;
     public String content;
+    
+    public Account commenter;
     
     public Comment(){
     	
     }
     
-    public Comment(Account commenter, String content) {
-        this.commenter = commenter;
+    public Comment(ObjectId commenterId, String content) {
+        this.commenterId = commenterId;
         this.content = content;
         this.postedAt = new Date();
     }

@@ -1,53 +1,80 @@
 package beans;
 
 import models.Account;
+import models.Post;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
 
+import repository.AccountRepository;
+import builders.AccountBuilder;
 import exceptions.AccountCreateException;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 public class AccountService {
 
 	private static final Log log = LogFactory.getLog(AccountService.class);
 	
 	@Autowired
+	private AccountRepository repository;
+	
+	@Autowired
+	private AccountBuilder accountBuilder;
+	
+	@Autowired
 	@Qualifier("mongoTemplate")
 	private MongoOperations accountOps;	
-
-	public void insertAccount(Account account) throws AccountCreateException {
-		Account paccount =retriveByEmail(account.email);
-		if(paccount!=null){
+	
+	public Account insertAccount(Account account) throws AccountCreateException {
+		if(retriveByEmail(account.email,false)!=null){
 			throw new AccountCreateException("Email already Exist!");
 		}
-		accountOps.insert(account);
-		log.info("Insert: " + account);
-	}
-
-	public Account retriveById(String id) {
-		return accountOps.findById(id, Account.class);
+		return repository.save(account);
 	}
 	
-	public Account retriveByEmail(String email) {
-		return accountOps.findOne(query(where("email").is(email)),Account.class);
+	public Account retriveById(ObjectId id, boolean fullData) {
+		Account account=repository.findOne(id);
+		if(fullData && account!=null){
+			return accountBuilder.buildAccount(account);
+		}
+		return account;
 	}
 	
-	public void updateAccount(Account account){
-		accountOps.save(account);    
+	public Account retriveByEmail(String email,boolean fullData) {
+		Account account=repository.findByEmail(email);
+		if(fullData && account!=null){
+			accountBuilder.buildAccount(account);
+		}
+		return account;
+	}
+	
+	public Account updateAccount(Account account){
+		return  repository.save(account);    
 	}
 	
 	public void deleteAccount(Account account){
-		accountOps.remove(account);
+		repository.delete(account);
 		log.info("Delete: " + account);
 	}
-
+	
+	public Account addColleague(Account owner,Account colleague){
+		if(colleague!=null && !isColleague(owner,colleague)){
+			Account newColleague=retriveByEmail(colleague.email,false);
+			owner.colleaguesIds.add(newColleague.id);
+			updateAccount(owner);
+		}
+		return owner;
+	}
+	
+	public boolean isColleague(Account owner,Account colleague){
+		return owner.colleaguesIds.contains(colleague.id);
+	}
+			
 	public MongoOperations getAccountOps() {
 		return accountOps;
 	}
+
 }
