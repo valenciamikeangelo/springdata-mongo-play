@@ -14,8 +14,10 @@ public class Account {
 	public List<ObjectId> colleaguesIds;
 	public List<ObjectId> participatedPostIds;
 	
+	
 	//non-persisted attributes,data is derived from a builder
 	public List<Post> posts;
+	public List<Post> participatedPosts;
 	public List<Account> colleagues;
 	
 		

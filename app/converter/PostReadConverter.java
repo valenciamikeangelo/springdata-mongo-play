@@ -13,7 +13,7 @@ import org.springframework.core.convert.converter.Converter;
 import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;
 
-public class PostReadConverter implements Converter<DBObject, Post>{
+public class PostReadConverter extends BaseConverter implements Converter<DBObject, Post>{
 
 	@Override
 	public Post convert(DBObject source) {

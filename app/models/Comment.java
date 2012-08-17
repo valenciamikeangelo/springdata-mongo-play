@@ -12,6 +12,7 @@ public class Comment{
     public Date postedAt;
     public String content;
     
+    //non-persisted attributes,data is derived from a builder
     public Account commenter;
     
     public Comment(){

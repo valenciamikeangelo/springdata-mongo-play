@@ -111,7 +111,7 @@ public class PostServiceTest {
 	assertEquals(1, ppostc.comments.size());
 	assertEquals(account.email, ppostc.comments.get(0).commenter.email);
 	assertEquals("THIS IS A COMMENT", ppostc.comments.get(0).content);
-	//assertEquals(1,account.participatedPosts.size());
+	assertEquals(1,account.participatedPosts.size());
 	
 	postService.addComment(account2, "THIS IS ANOTHER COMMENT", postToComment.id);
 	
@@ -122,7 +122,7 @@ public class PostServiceTest {
 	assertEquals(2, ppostc.comments.size());
 	assertEquals(account2.email, ppostc.comments.get(1).commenter.email);
 	assertEquals("THIS IS ANOTHER COMMENT", ppostc.comments.get(1).content);
-	//assertEquals(1,account2.participatedPosts.size());
+	assertEquals(1,account2.participatedPosts.size());
 	
 	}
 	

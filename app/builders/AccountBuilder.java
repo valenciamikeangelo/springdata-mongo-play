@@ -1,6 +1,7 @@
 package builders;
 
 import models.Account;
+import models.Post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,12 +18,13 @@ public class AccountBuilder {
 	
 	@Autowired
 	@Qualifier("mongoTemplate")
-	private MongoOperations accountOps;	
+	private MongoOperations mongoOps;	
 	
 	public Account buildAccount(Account account){
 		if(account!=null){
 			buildPosts(account);
 			buildCollegues(account);
+			buildParticipatedPosts(account);
 		}
 		return account;
 	}
@@ -33,7 +35,12 @@ public class AccountBuilder {
 	
 	private void buildCollegues(Account account){
 		Query query = new Query(Criteria.where("id").in(account.colleaguesIds));
-		account.colleagues=accountOps.find(query, Account.class);
+		account.colleagues=mongoOps.find(query, Account.class);
+	}
+	
+	private void buildParticipatedPosts(Account account){
+		Query query = new Query(Criteria.where("id").in(account.participatedPostIds));
+		account.participatedPosts=mongoOps.find(query, Post.class);
 	}
 
 }

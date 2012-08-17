@@ -11,7 +11,7 @@ import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
-public class PostWriteConverter implements Converter<Post, DBObject>{
+public class PostWriteConverter extends BaseConverter implements Converter<Post, DBObject>{
 
 	@Override
 	public DBObject convert(Post source) {

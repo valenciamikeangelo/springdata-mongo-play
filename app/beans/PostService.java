@@ -31,6 +31,9 @@ public class PostService {
 	@Autowired
 	private PostBuilder postBuilder;
 	
+	@Autowired
+	private AccountService accountService;
+	
 	public Post createPost(Account author,String title,String content){
 		Post post= new Post(author.id, title, content);
 		return updatePost(post);
@@ -48,6 +51,7 @@ public class PostService {
 		Comment newComment = new Comment(commenter.id, content);
 		Post post=findPostById(postId);
 		post.comments.add(newComment);
+		accountService.addParticipatedPost(commenter, post);
 		return updatePost(post);
 	}
 	

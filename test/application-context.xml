@@ -26,6 +26,8 @@
 			<mongo:converter ref="accountWriteConverter" />
 			<mongo:converter ref="postReadConverter" />
 			<mongo:converter ref="postWriteConverter" />
+			<mongo:converter ref="eventReadConverter" />
+			<mongo:converter ref="eventWriteConverter" />
 		</mongo:custom-converters>
 	</mongo:mapping-converter>
 	
@@ -40,6 +42,8 @@
 	<bean id="accountWriteConverter" class="converter.AccountWriteConverter"/>
 	<bean id="postReadConverter" class="converter.PostReadConverter"/>
 	<bean id="postWriteConverter" class="converter.PostWriteConverter"/>
+	<bean id="eventReadConverter" class="converter.EventReadConverter"/>
+	<bean id="eventWriteConverter" class="converter.EventWriteConverter"/>
 	
 	<mongo:repositories base-package="repository" />
 </beans>

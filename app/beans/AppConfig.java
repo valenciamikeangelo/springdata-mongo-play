@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.index.Index;
 import org.springframework.data.mongodb.core.query.Order;
 
 import builders.AccountBuilder;
+import builders.EventBuilder;
 import builders.PostBuilder;
 
 
@@ -63,6 +64,12 @@ public class AppConfig {
 		return postService;
 	}
 	
+	@Bean
+	public EventService eventService(){
+		EventService eventService = new EventService();
+		return eventService;
+	}
+	
 	@Bean 
 	public AccountBuilder accountBuilder(){
 		AccountBuilder accountBuilder = new AccountBuilder();
@@ -75,10 +82,11 @@ public class AppConfig {
 		return postBuilder;
 	}
 	
-	@Bean
-	public EventService eventService(){
-		EventService eventService = new EventService();
-		return eventService;
+	
+	@Bean 
+	public EventBuilder eventBuilder(){
+		EventBuilder eventBuilder = new EventBuilder();
+		return eventBuilder;
 	}
 	
 	

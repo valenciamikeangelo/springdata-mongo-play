@@ -64,7 +64,15 @@ public class AccountService {
 		if(colleague!=null && !isColleague(owner,colleague)){
 			Account newColleague=retriveByEmail(colleague.email,false);
 			owner.colleaguesIds.add(newColleague.id);
-			updateAccount(owner);
+			owner=updateAccount(owner);
+		}
+		return owner;
+	}
+	
+	public Account addParticipatedPost(Account owner, Post post){
+		if(post!=null && !hasAlreadyParticipated(owner,post)){
+			owner.participatedPostIds.add(post.id);
+			owner=updateAccount(owner);
 		}
 		return owner;
 	}
@@ -73,6 +81,10 @@ public class AccountService {
 		return owner.colleaguesIds.contains(colleague.id);
 	}
 			
+	public boolean hasAlreadyParticipated(Account owner, Post post){
+		return owner.participatedPostIds.contains(post.id);
+	}
+	
 	public MongoOperations getAccountOps() {
 		return accountOps;
 	}
